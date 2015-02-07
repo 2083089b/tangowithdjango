@@ -1,5 +1,5 @@
 import os
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'firstproject.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'tangowithdjango.settings')
 
 import django
 django.setup()

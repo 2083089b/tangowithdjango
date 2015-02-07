@@ -1,5 +1,5 @@
 """
-Django settings for firstproject project.
+Django settings for tangowithdjango project.
 
 For more information on this file, see
 https://docs.djangoproject.com/en/1.7/topics/settings/
@@ -53,9 +53,9 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
-ROOT_URLCONF = 'firstproject.urls'
+ROOT_URLCONF = 'tangowithdjango.urls'
 
-WSGI_APPLICATION = 'firstproject.wsgi.application'
+WSGI_APPLICATION = 'tangowithdjango.wsgi.application'
 
 
 # Database
@@ -93,3 +93,10 @@ STATICFILES_DIRS = (
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media') # Absolute path to the media directory
+
+PASSWORD_HASHERS = (
+'django.contrib.auth.hashers.PBKDF2PasswordHasher',
+'django.contrib.auth.hashers.PBKDF2SHA1PasswordHasher',
+)
+
+LOGIN_URL = '/rango/login/'
