@@ -50,6 +50,7 @@ def about(request):
 		visits = visits + 1
 	else:
 		count = 0
+
 	return render(request, 'rango/about.html', {'visits': count})
 
 def category(request, category_name_slug):
