@@ -5,8 +5,14 @@
 {% block title %}{{ "About Page" }}{% endblock %}
 
 {% block body_block %}
+	<div class="page-header">
+		<h1>About</h1>
+	</div>
+	<div>
+	<p></strong>.</p>
 		This tutorial has been put together by Lorenzo Betto, 2083089b 	<br>
 		Rango says here is the about page. <br><br>
 		<img src="{%static "images/me.jpg" %}" alt="Picture of me" /> <br>
 		<p> Visits to the site: {{ visit_count }}</p>
+	</div>
 {% endblock %}
