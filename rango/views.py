@@ -181,20 +181,5 @@ def track_url(request):
 
 
 def register_profile(request):
-	if request.method == 'POST':
-		profile_form = UserProfileForm(request.POST)
-		if profile_form.is_valid():
-			if request.user.is_authenticated():
-				print "what the hell"				#WHAT THE HELLLLLLLLLLLLLLLLLLLLLLLLLL
-				profile = profile_form.save(commit=False)
-				user = User.objects.get(id=request.user.id)
-				profile.user = user
-				try:
-					profile.picture = request.FILES['picture']
-				except:
-					pass
-				profile.save()
-				return index(request)
-	else:
-		form = UserProfileForm(request.GET)
-	return render(request, 'rango/profile_registration.html', {'profile_form': form})
+
+	return render(request, 'rango/profile_registration.html')
