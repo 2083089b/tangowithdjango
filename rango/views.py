@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from rango.models import Category, Page
+from rango.models import Category, Page, UserProfile
 from django.http import HttpResponseRedirect, HttpResponse
 from rango.forms import CategoryForm, PageForm, UserForm, UserProfileForm
 from django.contrib.auth import authenticate, login, logout
@@ -180,6 +180,21 @@ def track_url(request):
 	return redirect(page.url)
 
 
+@login_required
 def register_profile(request):
-
-	return render(request, 'rango/profile_registration.html')
+	if request.method == 'POST':
+		profile_form = UserProfileForm(request.POST)
+		if profile_form.is_valid():
+			if request.user.is_authenticated():
+				profile = profile_form.save(commit=False)
+				user = User.objects.get(id=request.user.id)
+				profile.user = user
+				try:
+					profile.picture = request.FILES['picture']
+				except:
+					pass
+				profile.save()
+				return index(request)
+	else:
+		form = UserProfileForm(request.GET)
+	return render(request, 'rango/profile_registration.html', {'profile_form': form})
