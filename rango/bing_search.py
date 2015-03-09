@@ -6,7 +6,6 @@ def main():
 	search_these_words = raw_input("Enter a query: ")
 	results = run_query(search_these_words)
 	c = 0
-	type(results)
 	while c < len(results):
 		print "Result number: ", c+1
 		print "Title", results[c]["title"]
